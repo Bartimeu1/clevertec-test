@@ -1,0 +1,26 @@
+name: Clevertec Frontend Review Action
+
+on:
+  pull_request_review:
+    types: [submitted]
+
+permissions:
+  checks: write
+  actions: read
+  contents: read
+
+jobs:
+  check:
+    name: Checking required reviews
+    runs-on: ubuntu-latest
+
+    if: github.event.pull_request.head.repo.full_name == github.event.pull_request.base.repo.full_name
+
+    steps:
+      - uses: ClevertecFrontendLab/review-pr@main
+        with:
+          token: ${{ secrets.ADMIN_TOKEN }}
+          host: ${{ secrets.HOST }}
+          owner: ${{ github.repository_owner }}
+          repo: ${{ github.event.repository.name }}
+          pull_number: ${{ github.event.pull_request.number }}

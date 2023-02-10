@@ -1,0 +1,21 @@
+name: Clevertec Frontend brach protection
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+
+  add-branch-protection:
+    permissions: write-all
+    runs-on: ubuntu-latest
+    name: Add branch protection
+    steps:
+      - name: Add branch protection
+        uses: ClevertecFrontendLab/branch-protection@main
+        with:
+          owner: ${{ github.repository_owner }}
+          repo: ${{ github.event.repository.name }}
+          token: ${{ secrets.ADMIN_TOKEN }}
+          host: ${{ secrets.HOST }}

@@ -1,0 +1,22 @@
+name: Clevertec Frontend merge
+
+on:
+  pull_request:
+    branches:
+      - main
+    types: [closed]
+
+jobs:
+  build:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    name: merge to main
+    steps:
+      - name: Send request on merge
+        uses: ClevertecFrontendLab/merge-pr@main
+        with:
+          owner: ${{ github.repository_owner }}
+          repo: ${{ github.event.repository.name }}
+          pull_number: ${{ github.event.number }}
+          token: ${{ secrets.ADMIN_TOKEN }}
+          host: ${{ secrets.HOST }}
