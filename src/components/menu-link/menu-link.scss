@@ -1,9 +1,11 @@
-a {
-  &:last-child {
-    margin-bottom: 0;
-  }
-  &:hover {
-    color: #F86D0C;
-    transition: 0.2s;
+.menu {
+  & a {
+    &:last-child {
+      margin-bottom: 0;
+    }
+    &:hover {
+      color: #f86d0c;
+      transition: 0.2s;
+    }
   }
 }

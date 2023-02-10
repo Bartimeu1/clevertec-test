@@ -123,7 +123,7 @@
       margin-right: 0;
     }
     &:nth-child(4n) {
-      margin: 0 35px 40px 0;
+      margin-right: 35px;
     }
   }
 }
@@ -131,9 +131,6 @@
 @media screen and (max-width: 767px) {
   .products-item--tile {
     margin: 0 15px 40px 0;
-    &:nth-child(3n) {
-      margin-right: 0;
-    }
     &:nth-child(4n) {
       margin: 0 15px 40px 0;
     }
