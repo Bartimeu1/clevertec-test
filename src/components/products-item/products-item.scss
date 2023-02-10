@@ -1,0 +1,206 @@
+.products-item {
+  box-shadow: 0px 2px 4px rgba(191, 196, 201, 0.2), 0px 3px 4px rgba(191, 196, 201, 0.18), 0px 1px 5px rgba(191, 196, 201, 0.24);
+  display: flex;
+  &--tile {
+    height: 470px;
+    border-radius: 10px;
+    width: 190px;
+    flex-direction: column;
+    margin: 0 21.5px 24px 0;
+    padding: 8px 8px 0 8px;
+    &:nth-child(4n) {
+      margin-right: 0;
+    }
+  }
+  &--list {
+    width: 100%;
+    border-radius: 12px;
+    padding: 24px 24px 24px 16px;
+    margin-bottom: 16px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.item {
+  &-image {
+    &--tile {
+      height: 242px;
+      width: 100%;
+      max-width: 174px;
+      margin: 0 auto 18px auto;
+    }
+    &--list {
+      height: 170px;
+      width: 120px;
+      margin-right: 16px;
+    }
+  }
+  &-title {
+    letter-spacing: 0.1px;
+    color: #363636;
+    &--tile {
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 18px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;  
+      overflow: hidden;
+      margin-top: 19px;
+      height: 54px;
+    }
+    &--list {
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 30px;
+      margin-bottom: 8px;
+    }
+  }
+  &-author {
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: 0.1px;
+    color: #727272;
+    &--tile {
+      height: 36px;
+      margin-bottom: 19px;
+      line-height: 18px;
+      font-size: 14px;
+    }
+    &--list {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+  &-button {
+    background: linear-gradient(231.58deg, #F83600 -53.35%, #F9D423 297.76%);
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 12px;
+    text-align: center;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    cursor: pointer;
+    &--tile {
+      padding: 11px 23px;
+      width: 166px;
+      margin: 0 auto;
+    }
+    &--list {
+      padding: 11px 27px;
+    }
+    &--booked {
+      background: #F9F9FA;
+      border: 1px solid #BFC4C9;
+      color: #A7A7A7;
+      cursor: auto;
+    }
+  }
+  &-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    &-text {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 24px;
+    }
+    &-block {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+}
+
+@media screen and (max-width: 1240px) {
+  .products-item--tile {
+    margin: 0 35px 32px 0;
+    &:nth-child(3n) {
+      margin-right: 0;
+    }
+    &:nth-child(4n) {
+      margin: 0 35px 40px 0;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .products-item--tile {
+    margin: 0 15px 40px 0;
+    &:nth-child(3n) {
+      margin-right: 0;
+    }
+    &:nth-child(4n) {
+      margin: 0 15px 40px 0;
+    }
+  }
+  .products-item--list {
+    padding: 16px 16px 16px 8px;
+  }
+  .item-info-block {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  .item-title--list {
+    font-size: 14px;
+    line-height: 18px;
+  }
+  .item-button--list {
+    margin-top: 18px;
+  }
+  .item-info-text {
+    margin-bottom: 4px;
+  }
+  .item-author--list {
+    font-size: 12px;
+    line-height: 18px;
+  }
+  .item-button--list {
+    width: 186px;
+    padding: 11px 33px;
+  }
+  .item-image--list {
+    width: 70px;
+    height: 100px;
+    margin-right: 8px;
+  }
+}
+
+@media screen and (max-width: 632px) {
+  .products-item--tile {
+    width: 100%;
+    margin-right: 0;
+    padding: 16px 16px 0 16px;
+    &:nth-child(4n) {
+      margin-right: 0;
+    }
+  }
+  .item-button--tile {
+    width: 256px;
+  }
+  .item-title--tile {
+    font-weight: 600;
+    -webkit-line-clamp: 2;
+    height: 36px;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .products-item--tile {
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    height: auto;
+    max-height: 470px;
+  }
+  .item-author--tile {
+    margin: 8px 0 28px 0;
+  }
+   .book-info-block {
+    min-width: none;
+   }
+}

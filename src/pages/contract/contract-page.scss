@@ -1,0 +1,58 @@
+.wrapper {
+  margin: 62px 0;
+  @media screen and (max-width: 560px) {
+    margin: 55px 0 24px 0;
+  }
+}
+
+.container--contract {
+  display: flex;
+}
+
+.contract {
+  &-title {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 40px;
+    color: #363636;
+    margin-bottom: 32px;
+  }
+  &-list {
+    &--sub {
+      padding-left: 30px;
+    }
+  }
+}
+.list-text {
+  &--main {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: #363636;
+    margin-bottom: 32px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  &--sub {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #363636;
+    margin-top: 16px;
+  }
+}
+
+@media screen and (max-width: 470px) {
+  .contract {
+    &-title {
+      font-size: 18px;
+      line-height: 28px;
+      margin-bottom: 24px;
+    }
+  }
+  .list-text--sub {
+    font-size: 15px;
+    line-height: 20px;
+  }
+}

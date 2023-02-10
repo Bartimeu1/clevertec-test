@@ -1,0 +1,12 @@
+.rating {
+  margin: 0 -5px;
+  & img {
+    margin: 0 5px;
+  }
+  &-text {
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 0.1px;
+    color: #A7A7A7;
+  }
+}
