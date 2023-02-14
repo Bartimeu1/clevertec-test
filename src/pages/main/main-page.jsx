@@ -1,18 +1,20 @@
 import React from 'react';
+import { useGetBooksQuery, useGetCategoriesQuery } from '../../store/data/data.api';
 import './main-page.scss';
 
-import { Menu } from '../../components/menu/menu';
 import { Products } from '../../components/products/products';
-import { Container } from '../../components/container/container';
+import { Loader } from '../../components/loader/loader';
+import { Toast } from '../../components/toast/toast';
 
-export function MainPage({ bookGenres }) {
+export function MainPage() {
+  // Data logic
+  const { isLoading: booksLoading, error: booksError } = useGetBooksQuery();
+  const { isLoading: categoriesLoading, error: categoriesError } = useGetCategoriesQuery();
 
   return (
     <div className='main'>
-      <Container className='container--main'>
-        <Menu bookGenres={bookGenres} current='books' />
-        <Products />
-      </Container>
+      {booksLoading || categoriesLoading ? <Loader /> : null}
+      {booksError || categoriesError ? <Toast /> : <Products />}
     </div>
-  )
+  );
 }

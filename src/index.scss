@@ -16,4 +16,10 @@ body {
   font-weight: 400;
   color: #363636;
   letter-spacing: 0.1px;
+  position: relative;
+  min-height: 100vh;
+}
+
+input {
+  font-family: 'Montserrat', sans-serif;
 }

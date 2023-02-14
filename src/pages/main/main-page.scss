@@ -1,14 +1,3 @@
 .main {
-  margin: 62px 0;
-  @media screen and (max-width: 560px) {
-    margin-top: 42px;
-  }    
-}
-
-.container--main {
-  display: flex;
-  flex-direction: row;
-  @media screen and (max-width: 560px) {
-    margin-top: 42px;
-  }
+  width: 100%;
 }

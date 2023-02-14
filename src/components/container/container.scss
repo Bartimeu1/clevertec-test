@@ -3,10 +3,18 @@
   padding: 0 64px;
   width: 100%;
   max-width: 1238px;
-  @media screen and (max-width: 735px) {
-    padding: 0 16px;
+  &--main {
+    display: flex;
+    flex-direction: row;
+    margin-top: 62px;
+    padding-bottom: 120px;
+    @media screen and (max-width: 560px) {
+      margin-top: 42px;
+      padding-bottom: 171px;
+    }
   }
-  &--empty {
-    height: calc(100vh - 159px);
+  @media screen and (max-width: 735px) {
+    padding-left: 16px;
+    padding-right: 16px;
   }
 }

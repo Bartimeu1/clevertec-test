@@ -2,12 +2,7 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './navigation.scss';
 
-export function Navigation() {
-  // Take Data From Location State
-  const location = useLocation();
-  const { bookInfo } = location.state;
-  const { title, id } = bookInfo;
-
+export function Navigation({title}) {
   return (
     <nav className='navigation'>
       <div className='navigation-container'>

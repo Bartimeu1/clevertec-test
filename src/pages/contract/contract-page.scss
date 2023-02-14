@@ -1,14 +1,3 @@
-.wrapper {
-  margin: 62px 0;
-  @media screen and (max-width: 560px) {
-    margin: 55px 0 24px 0;
-  }
-}
-
-.container--contract {
-  display: flex;
-}
-
 .contract {
   &-title {
     font-weight: 700;

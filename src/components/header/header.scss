@@ -18,6 +18,9 @@
     display: flex;
     align-items: center;
     cursor: pointer;
+    &-image {
+      width: 58px;
+    }
     &-text {
       font-weight: 600;
       font-size: 14px;

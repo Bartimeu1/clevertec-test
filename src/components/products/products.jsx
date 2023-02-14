@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './products.scss';
+import { useGetBooksQuery } from '../../store/data/data.api';
 
 import { books } from '../../data';
 
@@ -7,7 +8,11 @@ import { Controls } from '../controls/controls';
 import { ProductsList } from '../products-list/products-list';
 
 export function Products() {
+  // Cards view
   const [productsView, setProductsView] = useState('tile');
+
+  // Books data
+  const {data: booksData} = useGetBooksQuery();
 
   return (
     <div className='products'>
@@ -17,7 +22,7 @@ export function Products() {
       />
       <ProductsList 
         productsView={productsView}
-        products={books}
+        booksData={booksData}
       />
     </div>
   )

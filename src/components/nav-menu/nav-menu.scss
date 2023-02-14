@@ -3,15 +3,47 @@
   max-width: 279px;
   padding: 0;
   margin: 0 6px 0 0;
-  &.hidden {
-    display: none;
-  }
-  &-wrapper {
-    display: flex;
-    flex-direction: column;
-  }
   &-profile {
     display: none;
+  }
+  &.mobile {
+    display: none;
+    position: absolute;
+    width: 100%;
+    max-width: 502px;
+    top: 90px;
+    left: 64px;
+    z-index: 10;
+    margin-right: 0;
+    background-color: #f9f9fa;
+    padding: 32px 0 52px 32px;
+    box-shadow: 0px 2px 4px rgba(191, 196, 201, 0.2), 0px 3px 4px rgba(191, 196, 201, 0.18),
+      0px 1px 5px rgba(191, 196, 201, 0.24);
+    border-radius: 10px;
+    @media screen and (max-width: 600px) {
+      max-width: 288px;
+      padding: 32px 0 52px 16px;
+      margin: 76px 0 0 16px;
+    }
+    & .menu-profile {
+      display: block;
+      position: relative;
+      margin-top: 10px;
+      padding-top: 32px;
+      &::before {
+        position: absolute;
+        content: '';
+        height: 1px;
+        width: 502px;
+        background: #bfc4c9;
+        top: 0;
+        left: -32px;
+        @media screen and (max-width: 600px) {
+          width: 288px;
+          left: -16px;
+        }
+      }
+    }
   }
   &-link {
     font-weight: 700;
@@ -112,6 +144,7 @@
   letter-spacing: 0.1px;
   background: inherit;
   cursor: pointer;
+  width: 100%;
   &::before {
     content: '';
     position: absolute;
@@ -125,6 +158,9 @@
     margin-left: 87px;
     transform: rotate(180deg);
     transition: all 0.3s ease 0s;
+    &.hidden {
+      display: none;
+    }
   }
   &--active {
     margin-bottom: 24px;
@@ -139,45 +175,8 @@
 @media screen and (max-width: 1055px) {
   .menu {
     display: none;
-    &-profile {
-      display: block;
-      position: relative;
-      margin-top: 10px;
-      padding-top: 32px;
-      &::before {
-        position: absolute;
-        content: '';
-        height: 1px;
-        width: 502px;
-        background: #bfc4c9;
-        top: 0;
-        left: -32px;
-        @media screen and (max-width: 600px) {
-          width: 288px;
-          left: -16px;
-        }
-      }
-    }
   }
-  .menu.visible {
+  .menu.mobile.visible {
     display: block;
-    position: absolute;
-    width: 100%;
-    max-width: 502px;
-    top: 0;
-    left: 0;
-    z-index: 10;
-    margin-right: 0;
-    background-color: #f9f9fa;
-    margin: 90px 0 0 64px;
-    padding: 32px 0 52px 32px;
-    box-shadow: 0px 2px 4px rgba(191, 196, 201, 0.2), 0px 3px 4px rgba(191, 196, 201, 0.18),
-      0px 1px 5px rgba(191, 196, 201, 0.24);
-    border-radius: 10px;
-    @media screen and (max-width: 600px) {
-      max-width: 288px;
-      padding: 32px 0 52px 16px;
-      margin: 76px 0 0 16px;
-    }
   }
 }

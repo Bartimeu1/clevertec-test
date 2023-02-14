@@ -1,20 +1,22 @@
 import React, { useState } from 'react';
+import './nav-menu.scss';
 import classNames from 'classnames';
-import { NavLink, useLocation, useOutletContext } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import { useGetCategoriesQuery, useGetBooksQuery } from '../../store/data/data.api';
 import { useClickOutside } from '../../hooks/use-outside-click';
-import './menu.scss';
-
-import chevron from '../../assets/images/chevron.svg';
 
 import { MenuLink } from '../menu-link/menu-link';
 
-export function Menu({ bookGenres, onlyMobile }) {
+import chevron from '../../assets/images/chevron.svg';
+
+export function NavMenu({ mobile, burgerActive, toggleBurger, burgerRef }) {
   // Check if the books page is current
   const location = useLocation();
   const isBooksPage = location.pathname.includes('/books');
 
-  // Take burger state from layout context
-  const { isBurgerActive, setBurgerActive, burgerItem } = useOutletContext();
+  // Get data information
+  const { error: booksError } = useGetBooksQuery();
+  const { data: categoriesData, error: categoriesError } = useGetCategoriesQuery();
 
   // Dropdown logic
   const [dropdownActive, setDropdownActive] = useState(true);
@@ -24,21 +26,20 @@ export function Menu({ bookGenres, onlyMobile }) {
 
   // Hide menu when click was outside the component
   const domNode = useClickOutside(() => {
-    setBurgerActive();
-  }, burgerItem);
+    toggleBurger();
+  }, burgerRef);
 
   // Data attrs
-  
   const testIdShowcase = window.innerWidth > 768 ? 'navigation-showcase' : 'burger-showcase';
   const testIdAll = window.innerWidth > 768 ? 'navigation-books' : 'burger-books';
   const testIdTerms = window.innerWidth > 768 ? 'navigation-terms' : 'burger-terms';
   const testIdContract = window.innerWidth > 768 ? 'navigation-contract' : 'burger-contract';
 
   return (
-    <menu
+    <nav
       data-test-id='burger-navigation'
-      className={classNames('menu', { visible: isBurgerActive, hidden: onlyMobile })}
-      ref={isBurgerActive ? domNode : null}
+      ref={burgerActive ? domNode : null}
+      className={classNames('menu', { mobile, visible: burgerActive })}
     >
       {isBooksPage ? (
         <button
@@ -48,27 +49,28 @@ export function Menu({ bookGenres, onlyMobile }) {
           onClick={() => toggleDropdown()}
         >
           Витрина книг
-          <img src={chevron} alt='chevron' className='dropdown-img' />
+          <img src={chevron} alt='chevron' className={classNames('dropdown-img', { hidden: categoriesError || booksError})} />
         </button>
       ) : (
         <MenuLink to='/books/all' className='menu-link'>
           Витрина книг
         </MenuLink>
       )}
-      
-      <div className={classNames('menu-showcase showcase', {visible: isBooksPage && dropdownActive})}>
-        <MenuLink to='/books/all' dataTestId={testIdAll} className='showcase-all'>
-          Все книги
-        </MenuLink>
-        {bookGenres.map((item) => (
-          <MenuLink key={item.id} to={`/books/${item.value}`} className='showcase-link'>
-            <div className='showcase-link-title'>
-              {item.title}
-              <span className='showcase-link-amount'>{item.amount}</span>
-            </div>
+      {!categoriesError && !booksError && categoriesData ? (
+        <div className={classNames('menu-showcase showcase', { visible: isBooksPage && dropdownActive })}>
+          <MenuLink to='/books/all' dataTestId={testIdAll} className='showcase-all'>
+            Все книги
           </MenuLink>
-        ))}
-      </div>
+          {categoriesData.map((item) => (
+            <MenuLink key={item.id} to={`/books/${item.path}`} className='showcase-link'>
+              <div className='showcase-link-title'>
+                {item.name}
+                <span className='showcase-link-amount'>{5}</span>
+              </div>
+            </MenuLink>
+          ))}
+        </div>
+      ) : null}
       <MenuLink to='/terms' className='menu-link' dataTestId={testIdTerms}>
         Правила пользования
       </MenuLink>
@@ -83,6 +85,6 @@ export function Menu({ bookGenres, onlyMobile }) {
           Выход
         </MenuLink>
       </div>
-    </menu>
+    </nav>
   );
 }
