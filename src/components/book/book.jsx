@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import classNames from 'classnames';
-import { FreeMode, Navigation, Thumbs, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { FreeMode, Navigation, Thumbs, Pagination } from 'swiper';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -13,21 +12,19 @@ import 'swiper/css/thumbs';
 
 import './book.scss';
 
-// import Reviews Data
-import { reviews } from '../../data';
-
-// import images
+// Import images
 import unloaded from '../../assets/images/bookUnloaded.png';
 import reviewProfile from '../../assets/images/reviewProfile.svg';
 import chevron from '../../assets/images/chevronDark.svg';
 
-// Components
+// Import constants
+import { HOST } from '../../config';
+
+// Import components
 import { StarRating } from '../star-rating/star-rating';
-import { Icon } from '../icon/icon';
 import { Container } from '../container/container';
 
 export function Book({ bookData }) {
-  const host = 'https://strapi.cleverland.by';
   // Reviews toggle
   const [reviewsActive, setReviewsActive] = useState(false);
   const toggleReviews = () => {
@@ -38,8 +35,8 @@ export function Book({ bookData }) {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
   return (
-    <>
-      {bookData ? (
+    <React.Fragment>
+      {bookData && (
         <div className='book'>
           <Container className='book-container'>
             <div className='book-view'>
@@ -58,22 +55,22 @@ export function Book({ bookData }) {
                     >
                       {bookData.images.map((image) => (
                         <SwiperSlide key={Math.random()}>
-                          <img src={host + image.url} alt='view' />
+                          <img src={HOST + image.url} alt='view' />
                         </SwiperSlide>
                       ))}
                     </Swiper>
                     <Swiper
                       onSwiper={setThumbsSwiper}
-                      spaceBetween={30}
                       slidesPerView={5}
                       freeMode={true}
                       watchSlidesProgress={true}
+                      spaceBetween={0}
                       modules={[FreeMode, Navigation, Thumbs]}
                       className={classNames('book-slider-2', { hidden: bookData.images.length === 1 })}
                     >
                       {bookData.images.map((image) => (
                         <SwiperSlide key={Math.random()} data-test-id='slide-mini'>
-                          <img src={host + image.url} alt='view' />
+                          <img src={HOST + image.url} alt='view' />
                         </SwiperSlide>
                       ))}
                     </Swiper>
@@ -108,7 +105,7 @@ export function Book({ bookData }) {
               <p className='book-rating-title book-title'>Рейтинг</p>
               <div className='book-rating-block'>
                 <StarRating rating={bookData.rating} />
-                {bookData.rating != null ? <p className='book-rating-number book-title'>{bookData.rating}</p> : null}
+                {bookData.rating ? <p className='book-rating-number book-title'>{bookData.rating}</p> : null}
               </div>
             </div>
             <div className='book-info'>
@@ -160,7 +157,7 @@ export function Book({ bookData }) {
                 </div>
               </div>
             </div>
-            {bookData.rating != null ? (
+            {bookData.rating ? (
               <div className='book-reviews'>
                 <button
                   type='button'
@@ -178,7 +175,7 @@ export function Book({ bookData }) {
                   <div key={review.id} className={classNames('book-reviews-block', { opened: reviewsActive })}>
                     <div className='book-reviews-profile'>
                       <img
-                        src={review.user.avatarUrl ? host + review.user.avatarUrl : reviewProfile}
+                        src={review.user.avatarUrl ? HOST + review.user.avatarUrl : reviewProfile}
                         alt='profilePhoto'
                       />
                       <div className='book-reviews-info'>
@@ -188,7 +185,7 @@ export function Book({ bookData }) {
                         <p className='book-reviews-text'>{review.createdAt}</p>
                       </div>
                     </div>
-                    <StarRating rating={4} />
+                    <StarRating rating={review.rating} />
                     <p className='book-reviews-report'>{review.text}</p>
                   </div>
                 ))}
@@ -209,8 +206,8 @@ export function Book({ bookData }) {
             )}
           </Container>
         </div>
-      ) : null}
+      )}
       {/* this comment is a placeholder to use the react fragment */}
-    </>
+    </React.Fragment>
   );
 }

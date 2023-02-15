@@ -1,7 +1,7 @@
 import React from 'react';
 import './terms-page.scss';
 
-export function TermsPage({ bookGenres }) {
+export function TermsPage() {
   return (
     <div className='terms'>
       <div className='rules'>

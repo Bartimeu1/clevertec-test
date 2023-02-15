@@ -8,7 +8,7 @@ export function Toast() {
   const [toastActive, setToastActive] = useState(true);
 
   return (
-    <>
+    <React.Fragment>
       {toastActive ? (
         <div className='toast' data-test-id='error'>
           <div className='toast-content'>
@@ -21,6 +21,6 @@ export function Toast() {
         </div>
       ) : null}
       {/* this comment is a placeholder to use the react fragment */}
-    </>
+    </React.Fragment>
   );
 }

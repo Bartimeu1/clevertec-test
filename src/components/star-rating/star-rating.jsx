@@ -1,5 +1,4 @@
 import React from 'react';
-import classNames from 'classnames';
 import './star-rating.scss';
 
 import starFull from '../../assets/images/starFull.svg';
@@ -9,8 +8,8 @@ import { Icon } from '../icon/icon';
 
 export function StarRating({ rating }) {
   return (
-    <>
-      {rating != null ? (
+    <React.Fragment>
+      {rating ? (
         <div className='rating'>
           {[...Array(5)].map((star, index) => {
             const ratingValue = index + 1;
@@ -25,6 +24,6 @@ export function StarRating({ rating }) {
         <p className='rating-text'>ещё нет оценок</p>
       )}
       {/* this comment is a placeholder to use the react fragment */}
-    </>
+    </React.Fragment>
   );
 }

@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './products.scss';
 import { useGetBooksQuery } from '../../store/data/data.api';
-
-import { books } from '../../data';
 
 import { Controls } from '../controls/controls';
 import { ProductsList } from '../products-list/products-list';

@@ -3,15 +3,7 @@ import './view-button.scss';
 
 export function ViewButton({ children, active, mark, setProductsView }) {
   return (
-    // <button 
-    //   type='button'
-    //   className={active ? 'view-button--active' : 'view-button'}
-    //   data-test-id='button-menu-view-list'
-    //   onClick={() => setProductsView(mark)}
-    // >
-    //   {children}
-    // </button>
-    <>
+    <React.Fragment>
       {mark === 'tile' ?
         <button
           data-test-id='button-menu-view-window'
@@ -31,6 +23,6 @@ export function ViewButton({ children, active, mark, setProductsView }) {
         </button>
       }
       {/* this comment is a placeholder to use the react fragment */}
-    </>
+    </React.Fragment>
   )
 }

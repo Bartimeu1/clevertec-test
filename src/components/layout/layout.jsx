@@ -6,10 +6,10 @@ import { Footer } from '../footer/footer';
 
 export function Layout() {
   return (
-    <>
+    <React.Fragment>
       <Header />
       <Outlet />
       <Footer />
-    </>
+    </React.Fragment>
   );
 }

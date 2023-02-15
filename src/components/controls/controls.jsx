@@ -5,7 +5,6 @@ import './controls.scss';
 import search from '../../assets/images/search.svg';
 import cross from '../../assets/images/cross.svg';
 
-import { Icon } from '../icon/icon';
 import { CustomSelect } from '../custom-select/custom-select';
 import { ViewButton } from '../view-button/view-button';
 

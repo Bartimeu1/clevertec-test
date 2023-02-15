@@ -1,20 +1,20 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import './products-item.scss';
 
 import unloaded from '../../assets/images/bookUnloaded.png';
 
+import { HOST } from '../../config';
+
 import { StarRating } from '../star-rating/star-rating';
 
 export function ProductsItem(props) {
   const { view, title, authors, rating, image, id, booking } = props;
-  const host = 'https://strapi.cleverland.by';
   
   return (
     <Link className={`card card--${view}`} data-test-id='card' to={`/books/all/${id}`}>
       <div className='card-cover'>
-        <img src={image ? host + image.url : unloaded} alt='unloaded' className='card-cover-image' />
+        <img src={image ? HOST + image.url : unloaded} alt='unloaded' className='card-cover-image' />
       </div>
       <div className='card-info'>
         <div className='card-info-text'>

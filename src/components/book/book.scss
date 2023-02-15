@@ -38,8 +38,10 @@
     &-2 {
       height: 86px;
       margin-top: 17px;
+      max-width: 445px;
       & .swiper-slide {
         opacity: 0.4;
+        background-position: center;
         & img {
           width: 65px;
         }

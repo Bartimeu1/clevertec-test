@@ -7,7 +7,7 @@ export function ProductsList({ booksData, productsView }) {
   return (
     <div className={productsView === 'tile' ? 'products-view--tile' : 'products-view--list'}>
       {booksData ? (
-        <>
+        <React.Fragment>
           {booksData.map((product) => (
             <ProductsItem
               view={productsView}
@@ -20,7 +20,7 @@ export function ProductsList({ booksData, productsView }) {
               booking={product.booking}
             />
           ))}
-        </>
+        </React.Fragment>
       ) : null}
     </div>
   );
