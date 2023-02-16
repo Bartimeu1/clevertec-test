@@ -1,0 +1,28 @@
+.products-view--tile {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 824.5px;
+  margin-bottom: -24px;
+}
+
+.products-view--list {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 1240px) {
+  .products-view--tile {
+    max-width: 640px;
+    margin: 0 auto -32px auto;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .products-view--tile {
+    margin-bottom: -16px;
+  }
+}

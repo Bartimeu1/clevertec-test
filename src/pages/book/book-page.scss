@@ -1,0 +1,11 @@
+.book-page {
+  margin-top: 42px;
+  padding-bottom: 98px;
+  @media screen and (max-width: 735px) {
+    margin-top: 55px;
+    padding-bottom: 128px;
+  }
+  @media screen and (max-width: 565px) {
+    margin-top: 39px;
+  }
+}

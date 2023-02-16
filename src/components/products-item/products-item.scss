@@ -1,0 +1,287 @@
+.card {
+  box-shadow: 0px 2px 4px rgba(191, 196, 201, 0.2), 0px 3px 4px rgba(191, 196, 201, 0.18),
+    0px 1px 5px rgba(191, 196, 201, 0.24);
+  display: flex;
+  &-cover {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &-info {
+    &-title {
+      color: #363636;
+    }
+    &-button {
+      background: linear-gradient(231.58deg, #f83600 -53.35%, #f9d423 297.76%);
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 12px;
+      text-align: center;
+      letter-spacing: 0.2px;
+      text-transform: uppercase;
+      color: #ffffff;
+      cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
+      &.booked {
+        background: #f9f9fa;
+        border: 1px solid #bfc4c9;
+        color: #a7a7a7;
+        cursor: auto;
+      }
+    }
+    &-author {
+      font-weight: 400;
+      line-height: 18px;
+      color: #727272;
+    }
+  }
+
+  &--tile {
+    height: 470px;
+    border-radius: 10px;
+    width: 190px;
+    flex-direction: column;
+    margin: 0 21.5px 24px 0;
+    padding: 8px 8px 0 8px;
+    &:nth-child(4n) {
+      margin-right: 0;
+    }
+    & .card {
+      &-cover {
+        height: 242px;
+        width: 100%;
+        margin-bottom: 18px;
+        &-image {
+          max-width: 174px;
+          max-height: 242px;
+        }
+      }
+      &-info {
+        display: flex;
+        flex-direction: column;
+        &-text {
+          order: 2;
+        }
+        &-button {
+          &--list {
+            display: none;
+          }
+          &--tile {
+            order: 3;
+          }
+        }
+        &-rating {
+          display: flex;
+          align-items: center;
+          height: 19px;
+          margin-bottom: 19px;
+        }
+        &-title {
+          font-weight: 600;
+          font-size: 14px;
+          line-height: 18px;
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          height: 54px;
+        }
+        &-author {
+          height: 36px;
+          margin-bottom: 19px;
+          line-height: 18px;
+          font-size: 14px;
+          display: flex;
+          align-items: center;
+        }
+        &-button {
+          background: linear-gradient(231.58deg, #f83600 -53.35%, #f9d423 297.76%);
+          border-radius: 20px;
+          font-weight: 600;
+          font-size: 12px;
+          text-align: center;
+          letter-spacing: 0.2px;
+          text-transform: uppercase;
+          color: #ffffff;
+          cursor: pointer;
+          padding: 11px 23px;
+          width: 166px;
+          margin: 0 auto;
+          & .booked {
+            background: #f9f9fa;
+            border: 1px solid #bfc4c9;
+            color: #a7a7a7;
+            cursor: auto;
+          }
+        }
+      }
+    }
+  }
+  &--list {
+    width: 100%;
+    border-radius: 12px;
+    padding: 24px 24px 24px 16px;
+    margin-bottom: 16px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    & .card {
+      &-cover {
+        height: 170px;
+        width: 120px;
+        margin-right: 16px;
+        &-image {
+          max-width: 120px;
+        }
+      }
+      &-info {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        &-button {
+          padding: 11px 27px;
+          &--tile {
+            display: none;
+          }
+        }
+        &-title {
+          font-weight: 700;
+          font-size: 24px;
+          line-height: 30px;
+          margin-bottom: 16px;
+        }
+        &-author {
+          font-size: 16px;
+        }
+        &-text {
+          margin-bottom: 24px;
+        }
+        &-controls {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1240px) {
+  .card--tile {
+    margin: 0 35px 32px 0;
+    &:nth-child(4n) {
+      margin-right: 35px;
+    }
+    &:nth-child(3n) {
+      margin-right: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .card {
+    &--tile {
+      margin: 0 15px 40px 0;
+      &:nth-child(4n) {
+        margin: 0 15px 40px 0;
+      }
+    }
+    &--list {
+      padding: 16px 16px 16px 8px;
+      & .card {
+        &-info {
+          &-title {
+            font-size: 14px;
+            line-height: 18px;
+          }
+          &-button {
+            margin-top: 18px;
+            width: 186px;
+            padding: 11px 33px;
+          }
+          &-controls {
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+          }
+          &-text {
+            margin-bottom: 7px;
+          }
+          &-author {
+            font-size: 12px;
+            line-height: 18px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 632px) {
+  .card--tile {
+    width: 100%;
+    margin-right: 0;
+    padding: 16px 16px 0 16px;
+    &:nth-child(4n) {
+      margin-right: 0;
+    }
+    & .card {
+      &-info {
+        &-button {
+          width: 256px;
+        }
+        &-title {
+          font-weight: 600;
+          height: 36px;
+          -webkit-line-clamp: 2;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .card--tile {
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    height: auto;
+    max-height: 470px;
+    & .card {
+      &-info {
+        &-title {
+          margin-bottom: 8px;
+          height: 54px;
+        }
+        &-author {
+          margin-bottom: 28px;
+          height: auto;
+        }
+        &-controls {
+          min-width: none;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .card--list {
+    & .card {
+      &-cover {
+        height: 100px;
+        width: 70px;
+        margin-right: 16px;
+        &-image {
+          max-width: 70px;
+        }
+      }
+      &-info-title {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        margin-bottom: 8px;
+      }
+    }
+  }
+}
