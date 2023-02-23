@@ -1,16 +1,23 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import classNames from 'classnames';
+import { toggleSort, changeSearch } from '../../store/controls/controls';
 import './controls.scss';
 
 import search from '../../assets/images/search.svg';
 import cross from '../../assets/images/cross.svg';
+import sort from '../../assets/images/sort.svg';
+import sortDescending from '../../assets/images/sortDescending.svg';
 
-import { CustomSelect } from '../custom-select/custom-select';
 import { ViewButton } from '../view-button/view-button';
+import { Icon } from '../icon/icon';
 
 export function Controls({ productsView, setProductsView }) {
+  const dispatch = useDispatch();
   // Mobile input toggle
   const [inputActive, setInputActive] = useState(false);
+  // Current sort
+  const sortAscending = useSelector((state) => state.controls.sortAscending);
 
   return (
     <div className='controls'>
@@ -21,7 +28,9 @@ export function Controls({ productsView, setProductsView }) {
             data-test-id='input-search'
             className='controls-search-input'
             style={{ backgroundImage: `url(${search})` }}
+            onChange={(e) => dispatch(changeSearch(e.target.value))}
             placeholder='Поиск книги или автора…'
+            value={useSelector((state) => state.controls.currentSearch)}
           />
           <button
             type='button'
@@ -40,7 +49,15 @@ export function Controls({ productsView, setProductsView }) {
             <img src={cross} alt='close' />
           </button>
         </div>
-        <CustomSelect />
+        <button
+          type='button'
+          className='controls-select'
+          data-test-id='sort-rating-button'
+          onClick={() => dispatch(toggleSort())}
+        >
+          {sortAscending ? <Icon src={sort} alt='sort' /> : <Icon src={sortDescending} alt='sort' />}
+          <p className='controls-select-text'>По рейтингу</p>
+        </button>
       </div>
       <div className='controls-view'>
         <ViewButton

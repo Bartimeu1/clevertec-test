@@ -8,7 +8,6 @@ import { store } from './store/store';
 import { Layout } from './components/layout/layout';
 import { LayoutMainPage } from './components/layout-main-page/layout-main-page';
 import { MainPage } from './pages/main';
-import { Container } from './components/container/container';
 import { BookPage } from './pages/book';
 import { TermsPage } from './pages/terms';
 import { ContractPage } from './pages/contract';
@@ -23,12 +22,11 @@ root.render(
         <Route path='/' element={<Layout />}>
           <Route element={<LayoutMainPage />}>
             <Route path='/' element={<Navigate to='books/all' />} />
-            <Route path='/books/all' element={<MainPage />} />
-            {/* <Route path='/books/:category' element={<Container />} /> */}
+            <Route path='/books/:category' element={<MainPage />} />
             <Route path='/terms' element={<TermsPage />} />
             <Route path='/contract' element={<ContractPage />} />
           </Route>
-          <Route path='/books/all/:bookId' element={<BookPage />} />
+          <Route path='/books/:category/:bookId' element={<BookPage />} />
         </Route>
       </Routes>
     </HashRouter>

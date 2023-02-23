@@ -10,6 +10,9 @@
   &-info {
     &-title {
       color: #363636;
+      & span {
+        color: #FF5253;
+      }
     }
     &-button {
       background: linear-gradient(231.58deg, #f83600 -53.35%, #f9d423 297.76%);

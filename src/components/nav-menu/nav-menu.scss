@@ -24,6 +24,8 @@
       max-width: 288px;
       padding: 32px 0 52px 16px;
       margin: 76px 0 0 16px;
+      top: 0;
+      left: 0;
     }
     & .menu-profile {
       display: block;
@@ -86,10 +88,7 @@
     &--active {
       display: block;
       font-weight: 700;
-      font-size: 18px;
-      letter-spacing: 0.1px;
       color: #f86d0c;
-      margin-bottom: 16px;
       text-align: left;
       cursor: pointer;
     }
@@ -100,25 +99,25 @@
     transition: 0.2s;
     display: flex;
     line-height: 24px;
-    &--all {
-      margin-bottom: 16px;
+    &-text {
+      display: flex;
+    }
+    &-name {
       font-weight: 400;
       font-size: 16px;
     }
     &--active {
       font-weight: 700;
-      font-size: 18px;
-      letter-spacing: 0.1px;
+      font-size: 16px;
       color: #f86d0c;
       margin-bottom: 16px;
       text-align: left;
       cursor: pointer;
-    }
-    &-title {
-      font-weight: 400;
-      font-size: 16px;
-      letter-spacing: 0.1px;
-      margin-right: 6px;
+      & .showcase-link-name {
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 24px;
+      }
     }
     &-amount {
       font-weight: 400;

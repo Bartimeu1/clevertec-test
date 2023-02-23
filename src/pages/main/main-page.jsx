@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useGetBooksQuery, useGetCategoriesQuery } from '../../store/data/data.api';
 import './main-page.scss';
 
@@ -8,9 +8,11 @@ import { Toast } from '../../components/toast/toast';
 
 export function MainPage() {
   // Data logic
-  const { isLoading: booksLoading, error: booksError } = useGetBooksQuery();
-  const { isLoading: categoriesLoading, error: categoriesError } = useGetCategoriesQuery();
-
+    const { isLoading: booksLoading, error: booksError, refetch } = useGetBooksQuery();
+    const { isLoading: categoriesLoading, error: categoriesError } = useGetCategoriesQuery();
+  useEffect(() => {
+    refetch();
+  }, [refetch]);
   return (
     <div className='main'>
       {booksLoading || categoriesLoading ? <Loader /> : null}

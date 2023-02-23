@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import './header.scss';
 
 import logo from '../../assets/images/logo.svg';
@@ -16,13 +16,15 @@ export function Header() {
   const toggleBurger = () => {
     setBurgerActive((prevState) => !prevState);
   };
+  // Get category from url params
+  const { category } = useParams();
 
   return (
     <header className='header'>
       <NavMenu mobile={true} burgerActive={burgerActive} burgerRef={burgerRef} toggleBurger={toggleBurger} />
       <Container className='header-container'>
         <div className='header-info'>
-          <Link to='/' className='header-info-link'>
+          <Link to={`/books/${category}`} className='header-info-link'>
             <img src={logo} alt='logo' className='header-logo' />
           </Link>
           <Burger burgerActive={burgerActive} toggleBurger={toggleBurger} burgerRef={burgerRef} />

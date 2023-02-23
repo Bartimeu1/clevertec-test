@@ -1,3 +1,20 @@
 .products {
   width: 100%;
+  &-empty {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 40px;
+    text-align: center;
+    color: #a7a7a7;
+    margin-top: 200px;
+    @media screen and (max-width: 1055px) {
+      margin-top: 226px;
+    }
+    @media screen and (max-width: 600px) {
+      margin-top: 137px;
+      font-size: 18px;
+      line-height: 28px;
+      padding: 0 50px;
+    }
+  }
 }

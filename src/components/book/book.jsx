@@ -79,7 +79,9 @@ export function Book({ bookData }) {
                   <img data-test-id='slide-big' className='book-view-img--unloaded' alt='book' src={unloaded} />
                 )}
                 <div className='book-view-info'>
-                  <h2 className='book-view-title'>{bookData.title}</h2>
+                  <h2 className='book-view-title' data-test-id='book-title'>
+                    {bookData.title}
+                  </h2>
                   <p className='book-view-author'>{bookData.authors.map((item) => item)}</p>
                   {bookData.booking ? (
                     <button type='button' className='book-view-button book-view-button--booked'>
