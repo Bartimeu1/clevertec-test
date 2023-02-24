@@ -15,9 +15,9 @@
 
 @media screen and (max-width: 1240px) {
   .products-view--tile {
+    margin: 0 auto;
     max-width: 640px;
-    margin: 0 auto -32px auto;
-    justify-content: center;
+    margin-bottom: -32px;
   }
 }
 

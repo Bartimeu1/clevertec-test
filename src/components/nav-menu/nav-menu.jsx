@@ -15,13 +15,22 @@ export function NavMenu({ mobile, burgerActive, toggleBurger, burgerRef }) {
   const isBooksPage = location.pathname.includes('/books');
 
   // Get data information
-  const { error: booksError } = useGetBooksQuery();
+  const { data: booksData, error: booksError } = useGetBooksQuery();
   const { data: categoriesData, error: categoriesError } = useGetCategoriesQuery();
 
   // Dropdown logic
   const [dropdownActive, setDropdownActive] = useState(true);
   const toggleDropdown = () => {
     setDropdownActive((prevState) => !prevState);
+  };
+
+  // Calculate amount of books for categories
+  const calcAmount = (name) => {
+    let filteredArr = [];
+    if (booksData) {
+      filteredArr = booksData.filter((book) => book.categories.includes(name));
+    }
+    return filteredArr.length;
   };
 
   // Hide menu when click was outside the component
@@ -31,7 +40,6 @@ export function NavMenu({ mobile, burgerActive, toggleBurger, burgerRef }) {
 
   // Data attrs
   const testIdShowcase = window.innerWidth > 768 ? 'navigation-showcase' : 'burger-showcase';
-  const testIdAll = window.innerWidth > 768 ? 'navigation-books' : 'burger-books';
   const testIdTerms = window.innerWidth > 768 ? 'navigation-terms' : 'burger-terms';
   const testIdContract = window.innerWidth > 768 ? 'navigation-contract' : 'burger-contract';
 
@@ -49,7 +57,11 @@ export function NavMenu({ mobile, burgerActive, toggleBurger, burgerRef }) {
           onClick={() => toggleDropdown()}
         >
           Витрина книг
-          <img src={chevron} alt='chevron' className={classNames('dropdown-img', { hidden: categoriesError || booksError})} />
+          <img
+            src={chevron}
+            alt='chevron'
+            className={classNames('dropdown-img', { hidden: categoriesError || booksError })}
+          />
         </button>
       ) : (
         <MenuLink to='/books/all' className='menu-link'>
@@ -58,14 +70,38 @@ export function NavMenu({ mobile, burgerActive, toggleBurger, burgerRef }) {
       )}
       {!categoriesError && !booksError && categoriesData ? (
         <div className={classNames('menu-showcase showcase', { visible: isBooksPage && dropdownActive })}>
-          <MenuLink to='/books/all' dataTestId={testIdAll} className='showcase-all'>
+          <MenuLink
+            to='/books/all'
+            dataTestId={mobile ? `burger-books` : `navigation-books`}
+            className='showcase-all'
+            filter='Все книги'
+            closeToggle={mobile && toggleBurger}
+          >
             Все книги
           </MenuLink>
           {categoriesData.map((item) => (
-            <MenuLink key={item.id} to={`/books/${item.path}`} className='showcase-link'>
+            <MenuLink
+              key={item.id}
+              to={`/books/${item.path}`}
+              className='showcase-link'
+              filter={item.name}
+              closeToggle={mobile && toggleBurger}
+            >
               <div className='showcase-link-title'>
-                {item.name}
-                <span className='showcase-link-amount'>{5}</span>
+                <span
+                  className='showcase-link-name'
+                  data-test-id={mobile ? `burger-${item.path}` : `navigation-${item.path}`}
+                >
+                  {item.name}
+                </span>
+                <span
+                  className='showcase-link-amount'
+                  data-test-id={
+                    mobile ? `burger-book-count-for-${item.path}` : `navigation-book-count-for-${item.path}`
+                  }
+                >
+                  {calcAmount(item.name)}
+                </span>
               </div>
             </MenuLink>
           ))}

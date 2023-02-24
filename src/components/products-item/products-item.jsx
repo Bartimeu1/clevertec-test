@@ -7,22 +7,25 @@ import unloaded from '../../assets/images/bookUnloaded.png';
 import { HOST } from '../../config';
 
 import { StarRating } from '../star-rating/star-rating';
+import { HighlightedText } from '../highlighted-text/highlighted-text';
 
 export function ProductsItem(props) {
-  const { view, title, authors, rating, image, id, booking } = props;
-  
+  const { currentSearch, category, view, title, authors, rating, image, id, booking } = props;
+
   return (
-    <Link className={`card card--${view}`} data-test-id='card' to={`/books/all/${id}`}>
+    <Link className={`card card--${view}`} data-test-id='card' to={`/books/${category}/${id}`}>
       <div className='card-cover'>
         <img src={image ? HOST + image.url : unloaded} alt='unloaded' className='card-cover-image' />
       </div>
       <div className='card-info'>
         <div className='card-info-text'>
-          <h3 className='card-info-title'>{title}</h3>
+          <h3 className='card-info-title'>
+            {currentSearch !== '' ? <HighlightedText text={title} highlight={currentSearch} /> : title}
+          </h3>
           <p className='card-info-author'>{authors.map((author) => author)}</p>
         </div>
         <div className='card-info-controls'>
-          <div className="card-info-rating">
+          <div className='card-info-rating'>
             <StarRating rating={rating} />
           </div>
           <button
@@ -34,12 +37,12 @@ export function ProductsItem(props) {
           </button>
         </div>
         <button
-            type='button'
-            disabled={booking && true}
-            className={classNames('card-info-button card-info-button--tile', { booked: booking })}
-          >
-            {booking ? 'забронирована' : 'забронировать'}
-          </button>
+          type='button'
+          disabled={booking && true}
+          className={classNames('card-info-button card-info-button--tile', { booked: booking })}
+        >
+          {booking ? 'забронирована' : 'забронировать'}
+        </button>
       </div>
     </Link>
   );
