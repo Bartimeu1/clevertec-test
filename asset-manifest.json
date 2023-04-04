@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/static/css/main.9b11889d.css",
+    "main.js": "/static/js/main.a0ed1fe7.js",
+    "static/media/reviewProfile.svg": "/static/media/reviewProfile.08c5a7dd0ab1094d45db8f864c43b363.svg",
+    "static/media/logo.svg": "/static/media/logo.143831f5b8d2c861f037d1b064a3d014.svg",
+    "static/media/instagram.svg": "/static/media/instagram.bf0e437e0ca1c90fb3f7c8961e5e6541.svg",
+    "static/media/cross.svg": "/static/media/cross.5f13b346133512ab549a462036a57650.svg",
+    "static/media/sortDescending.svg": "/static/media/sortDescending.ccf82f799bed653b3c4f905610818aa1.svg",
+    "static/media/vk.svg": "/static/media/vk.cec79a7ecdbc915aed26c5a4ab1ff5c2.svg",
+    "static/media/sort.svg": "/static/media/sort.2b5735f33e6f5fe12612e09a1a27a128.svg",
+    "static/media/search.svg": "/static/media/search.9ac2de41ffa0689b64a6f74726a6b053.svg",
+    "static/media/starFull.svg": "/static/media/starFull.49846d614da46385c83479613bee4a48.svg",
+    "static/media/passwordClosed.svg": "/static/media/passwordClosed.c7ad43b2f19b8b83479071129fee0fc8.svg",
+    "static/media/chevron.svg": "/static/media/chevron.ce2361242fe190dda2f32dc04a7ba969.svg",
+    "static/media/toastClose.svg": "/static/media/toastClose.8575e7decb66b89d658dfc5f7e41c08b.svg",
+    "index.html": "/index.html",
+    "static/media/warning.svg": "/static/media/warning.d0f931225b9332388d0b94a1c3414a6c.svg",
+    "static/media/passwordOpened.svg": "/static/media/passwordOpened.6648ff5dec351ea5e1476a4e302df1af.svg",
+    "static/media/linkedin.svg": "/static/media/linkedin.7e716a127ab3f8577a17f83bfefdacc9.svg",
+    "static/media/starEmpty.svg": "/static/media/starEmpty.543b964218059add7570c74821c98f4a.svg",
+    "static/media/chevronDark.svg": "/static/media/chevronDark.7fcd66d91b2121701bbefdb958bfa5ea.svg",
+    "static/media/facebook.svg": "/static/media/facebook.106e7fb630d241320112014b9985342c.svg",
+    "static/media/arrow.svg": "/static/media/arrow.feba0c42f53442845ae101f823982ea9.svg",
+    "static/media/arrowGrey.svg": "/static/media/arrowGrey.3de3f4a06d585602b6f5bf811f44f922.svg",
+    "main.9b11889d.css.map": "/static/css/main.9b11889d.css.map",
+    "main.a0ed1fe7.js.map": "/static/js/main.a0ed1fe7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9b11889d.css",
+    "static/js/main.a0ed1fe7.js"
+  ]
+}
