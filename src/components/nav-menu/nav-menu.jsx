@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
-import './nav-menu.scss';
 import classNames from 'classnames';
 import { useLocation } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { logOut } from '../../store/auth/auth-slice';
 import { useGetCategoriesQuery, useGetBooksQuery } from '../../store/data/data.api';
 import { useClickOutside } from '../../hooks/use-outside-click';
+import './nav-menu.scss';
 
 import { MenuLink } from '../menu-link/menu-link';
 
 import chevron from '../../assets/images/chevron.svg';
 
 export function NavMenu({ mobile, burgerActive, toggleBurger, burgerRef }) {
+  const dispatch = useDispatch();
   // Check if the books page is current
   const location = useLocation();
   const isBooksPage = location.pathname.includes('/books');
@@ -114,12 +117,12 @@ export function NavMenu({ mobile, burgerActive, toggleBurger, burgerRef }) {
         Договор оферты
       </MenuLink>
       <div className='menu-profile'>
-        <MenuLink to='/profile' className='menu-link'>
+        <MenuLink to='#' className='menu-link'>
           Профиль
         </MenuLink>
-        <MenuLink to='/exit' className='menu-link'>
+        <button data-test-id='exit-button' type='button' className='menu-link' onClick={() => dispatch(logOut())}>
           Выход
-        </MenuLink>
+        </button>
       </div>
     </nav>
   );

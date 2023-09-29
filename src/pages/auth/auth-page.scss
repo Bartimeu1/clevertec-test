@@ -1,0 +1,112 @@
+.auth {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: linear-gradient(231.58deg, #f83600 -53.35%, #f9d423 297.76%);
+  &-form {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 50px 56px;
+    width: 100%;
+    max-width: 528px;
+    display: flex;
+    flex-direction: column;
+    &.errored {
+      & input {
+        border-bottom: 1px solid #F42C4F;
+      }
+    }
+    &-title {
+      color: #363636;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 30px;
+      margin-bottom: 32px;
+    }
+    &-field {
+      position: relative;
+    }
+    &-forgot {
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 16px;
+      letter-spacing: 0.2px;
+      color: #a7a7a7;
+      mix-blend-mode: normal;
+      padding-left: 12px;
+      margin-bottom: 32px;
+    }
+    &-submit {
+      width: 100%;
+      background: linear-gradient(231.58deg, #f83600 -53.35%, #f9d423 297.76%);
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 16px;
+      letter-spacing: 0.2px;
+      color: #ffffff;
+      text-transform: uppercase;
+      border: none;
+      padding: 14px 0;
+      margin-bottom: 22px;
+      cursor: pointer;
+    }
+  }
+  &-password {
+    position: relative;
+    margin: 36px 0 8px 0;
+    &-button {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      cursor: pointer;
+      display: none;
+      background: inherit;
+      &.visible {
+        display: block;
+      }
+    }
+  }
+  &-register {
+    display: flex;
+    align-items: center;
+    &-text {
+      font-weight: 400;
+      font-size: 16px;
+      color: #727272;
+      margin-right: 16px;
+      line-height: 24px;
+    }
+    &-link {
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 0.2px;
+      text-transform: uppercase;
+      color: #363636;
+      display: flex;
+      align-items: center;
+      & img {
+        margin-left: 15px;
+      }
+    }
+  }
+  &-restore {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0 30px 0;
+    &-text {
+      font-weight: 500;
+      font-size: 12px;
+      letter-spacing: 0.2px;
+      color: #f42c4f;
+      margin-bottom: 4px;
+    }
+    &-link {
+      color: #363636;
+      font-weight: 500;
+      font-size: 12px;
+      letter-spacing: 0.2px;
+    }
+  }
+}

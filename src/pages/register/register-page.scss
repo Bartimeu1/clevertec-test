@@ -1,0 +1,74 @@
+.register {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: linear-gradient(231.58deg, #f83600 -53.35%, #f9d423 297.76%);
+  &-form {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 50px 56px;
+    width: 100%;
+    max-width: 528px;
+    display: flex;
+    flex-direction: column;
+    &-topper {
+      margin-bottom: 32px;
+    }
+    &-title {
+      color: #363636;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 30px;
+      margin-bottom: 8px;
+    }
+    &-counter {
+      font-weight: 600;
+      font-size: 14px;
+      color: #363636;
+    }
+    &-item {
+      margin-bottom: 36px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    &-clue {
+      font-weight: 500;
+      font-size: 12px;
+      letter-spacing: 0.2px;
+      color: #a7a7a7;
+      margin-top: 5px;
+      padding-left: 12px;
+    }
+    &-button {
+      width: 100%;
+      background: linear-gradient(231.58deg, #f83600 -53.35%, #f9d423 297.76%);
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 16px;
+      letter-spacing: 0.2px;
+      color: #ffffff;
+      text-transform: uppercase;
+      border: none;
+      padding: 14px 0;
+      margin-bottom: 22px;
+      cursor: pointer;
+    }
+  }
+  &-password {
+    position: relative;
+    &-button {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      cursor: pointer;
+      display: none;
+      background: inherit;
+      &.visible {
+        display: block;
+      }
+    }
+  }
+}

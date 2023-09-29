@@ -1,0 +1,16 @@
+.modal {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 50px 56px;
+  width: 100%;
+  max-width: 528px;
+  display: flex;
+  flex-direction: column;
+  &-title {
+    color: #363636;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 30px;
+    margin-bottom: 8px;
+  }
+}

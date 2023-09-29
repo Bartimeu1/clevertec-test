@@ -23,14 +23,12 @@
     margin: 0 12px;
   }
 }
-
 @media screen and (max-width: 800px) {
   .navigation-link {
     font-size: 16px;
     line-height: 24px;
   }
 }
-
 @media screen and (max-width: 560px) {
   .navigation-link {
     font-size: 12px;
@@ -43,7 +41,6 @@
     margin-bottom: 20px;
   }
 }
-
 @media screen and (max-width: 780px) {
   .navigation {
     &-link,
@@ -53,7 +50,6 @@
     }
   }
 }
-
 @media screen and (max-width: 460px) {
   .navigation {
     padding: 20px 0;

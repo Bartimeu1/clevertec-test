@@ -1,8 +1,6 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { apiSlice } from '../api/api-slice';
 
-export const dataApi = createApi({
-  reducerPath: 'api/products',
-  baseQuery: fetchBaseQuery({ baseUrl: 'https://strapi.cleverland.by/api/' }),
+export const dataApi = apiSlice.injectEndpoints({
   endpoints: (build) => ({
     getCategories: build.query({
       query: () => 'categories',
